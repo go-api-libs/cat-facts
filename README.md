@@ -3,7 +3,7 @@
 [![Official Documentation](https://img.shields.io/badge/docs-API-blue)](https://alexwohlbruck.github.io/cat-facts/docs/)
 [![OpenAPI](https://img.shields.io/badge/OpenAPI-3.1-blue)](/api/openapi.json)
 [![Go Report Card](https://goreportcard.com/badge/github.com/go-api-libs/cat-facts)](https://goreportcard.com/report/github.com/go-api-libs/cat-facts)
-![Code Coverage](https://img.shields.io/badge/coverage-0%25-red)
+![Code Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 ![API Health](https://img.shields.io/badge/API_health-89%25-green)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
@@ -18,6 +18,32 @@ go get github.com/go-api-libs/cat-facts/pkg/catfacts
 ```
 
 ## Usage
+
+### Example: 
+
+```go
+package main
+
+import (
+	"context"
+
+	"github.com/go-api-libs/cat-facts/pkg/catfacts"
+)
+
+func main() {
+	c, err := catfacts.NewClient()
+	if err != nil {
+		panic(err)
+	}
+
+	ctx := context.Background()
+	err := c.GetRandom(ctx, &catfacts.GetRandomParams{Amount: 1})
+	if err != nil {
+		panic(err)
+	}
+}
+
+```
 
 ## Additional Information
 

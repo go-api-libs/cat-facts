@@ -5,9 +5,12 @@
 package catfacts
 
 import (
+	"context"
 	"net/http"
 	"net/url"
+	"strconv"
 
+	"github.com/go-api-libs/api"
 	"github.com/go-json-experiment/json"
 )
 
@@ -17,9 +20,9 @@ const (
 
 var (
 	baseURL = &url.URL{
-		Host:   "",
-		Path:   "TODO",
-		Scheme: "",
+		Host:   "cat-fact.herokuapp.com",
+		Path:   "/facts",
+		Scheme: "https",
 	}
 
 	jsonOpts = json.JoinOptions(
@@ -35,4 +38,39 @@ type Client struct {
 // NewClient creates a new Client.
 func NewClient() (*Client, error) {
 	return &Client{cli: http.DefaultClient}, nil
+}
+
+// GetRandom defines an operation.
+//
+//	GET /random
+func (c *Client) GetRandom(ctx context.Context, params *GetRandomParams) error {
+	u := baseURL.JoinPath("/random")
+
+	if params != nil && params.Amount != 0 {
+		u.RawQuery = url.Values{"amount": []string{strconv.Itoa(params.Amount)}}.Encode()
+	}
+
+	req := (&http.Request{
+		Header:     http.Header{"User-Agent": []string{userAgent}},
+		Host:       u.Host,
+		Method:     http.MethodGet,
+		Proto:      "HTTP/1.1",
+		ProtoMajor: 1,
+		ProtoMinor: 1,
+		URL:        u,
+	}).WithContext(ctx)
+
+	rsp, err := c.cli.Do(req)
+	if err != nil {
+		return err
+	}
+	defer rsp.Body.Close()
+
+	switch rsp.StatusCode {
+	case http.StatusServiceUnavailable:
+		// TODO
+		return api.NewErrStatusCode(rsp)
+	default:
+		return api.NewErrUnknownStatusCode(rsp)
+	}
 }

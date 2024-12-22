@@ -1,0 +1,76 @@
+---
+version: 2
+interactions:
+    - id: 0
+      request:
+        proto: HTTP/1.1
+        proto_major: 1
+        proto_minor: 1
+        content_length: 0
+        transfer_encoding: []
+        trailer: {}
+        host: cat-fact.herokuapp.com
+        remote_addr: ""
+        request_uri: ""
+        body: ""
+        form: {}
+        headers: {}
+        url: https://cat-fact.herokuapp.com/facts/random?amount=1
+        method: GET
+      response:
+        proto: HTTP/1.1
+        proto_major: 1
+        proto_minor: 1
+        transfer_encoding: []
+        trailer: {}
+        content_length: 506
+        uncompressed: false
+        body: |-
+            <!DOCTYPE html>
+            	<html>
+            	  <head>
+            		<meta name="viewport" content="width=device-width, initial-scale=1">
+            		<meta charset="utf-8">
+            		<title>Application Error</title>
+            		<style media="screen">
+            		  html,body,iframe {
+            			margin: 0;
+            			padding: 0;
+            		  }
+            		  html,body {
+            			height: 100%;
+            			overflow: hidden;
+            		  }
+            		  iframe {
+            			width: 100%;
+            			height: 100%;
+            			border: 0;
+            		  }
+            		</style>
+            	  </head>
+            	  <body>
+            		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+            	  </body>
+            	</html>
+        headers:
+            Cache-Control:
+                - no-cache, no-store
+            Connection:
+                - keep-alive
+            Content-Length:
+                - "506"
+            Content-Type:
+                - text/html; charset=utf-8
+            Date:
+                - Sun, 22 Dec 2024 14:20:05 GMT
+            Nel:
+                - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
+            Report-To:
+                - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1734877150&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=EkV1KAbV%2B7kd7UHrUvpyhfTjJ2MKPvxlb3cTFYZaDxg%3D"}]}'
+            Reporting-Endpoints:
+                - heroku-nel=https://nel.heroku.com/reports?ts=1734877150&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=EkV1KAbV%2B7kd7UHrUvpyhfTjJ2MKPvxlb3cTFYZaDxg%3D
+            Server:
+                - Cowboy
+        status: 503 Service Unavailable
+        code: 503
+        duration: 55.438699375s
