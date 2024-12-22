@@ -40,7 +40,7 @@ func NewClient() (*Client, error) {
 	return &Client{cli: http.DefaultClient}, nil
 }
 
-// GetRandom defines an operation.
+// Get random cat facts
 //
 //	GET /random
 func (c *Client) GetRandom(ctx context.Context, params *GetRandomParams) error {
@@ -68,7 +68,7 @@ func (c *Client) GetRandom(ctx context.Context, params *GetRandomParams) error {
 
 	switch rsp.StatusCode {
 	case http.StatusServiceUnavailable:
-		// TODO
+		// Returns an HTML page reporting an application error
 		return api.NewErrStatusCode(rsp)
 	default:
 		return api.NewErrUnknownStatusCode(rsp)

@@ -19,7 +19,7 @@ go get github.com/go-api-libs/cat-facts/pkg/catfacts
 
 ## Usage
 
-### Example: 
+### Example: Get random cat facts
 
 ```go
 package main

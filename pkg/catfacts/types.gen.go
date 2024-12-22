@@ -5,5 +5,6 @@
 package catfacts
 
 type GetRandomParams struct {
+	// The number of cat facts to return
 	Amount int
 }
