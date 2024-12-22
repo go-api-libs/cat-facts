@@ -1,0 +1,10 @@
+{
+  "id": 2,
+  "emoji": "😽",
+  "title": "Cat Fact API",
+  "description": "An API that shows different Cat Facts!",
+  "documentation": "https://alexwohlbruck.github.io/cat-facts/docs/",
+  "methods": 1,
+  "health": 89,
+  "source": "https://freepublicapis.com/cat-fact-api"
+}
