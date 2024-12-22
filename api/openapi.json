@@ -1,0 +1,20 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Cat Fact API",
+    "description": "An API that shows different Cat Facts!",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "TODO"
+    }
+  ],
+  "paths": {
+    "/": {}
+  },
+  "externalDocs": {
+    "description": "API documentation",
+    "url": "https://alexwohlbruck.github.io/cat-facts/docs/"
+  }
+}
