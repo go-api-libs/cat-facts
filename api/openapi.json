@@ -7,11 +7,11 @@
   },
   "servers": [
     {
-      "url": "https://cat-fact.herokuapp.com/facts"
+      "url": "https://cat-fact.herokuapp.com"
     }
   ],
   "paths": {
-    "/random": {
+    "/facts/random": {
       "parameters": [
         {
           "$ref": "#/components/parameters/amount"

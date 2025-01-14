@@ -22,7 +22,6 @@ const (
 var (
 	baseURL = &url.URL{
 		Host:   "cat-fact.herokuapp.com",
-		Path:   "/facts",
 		Scheme: "https",
 	}
 
@@ -43,7 +42,7 @@ func NewClient() (*Client, error) {
 
 // Get a random cat fact
 //
-//	GET /random
+//	GET /facts/random
 func (c *Client) GetRandom(ctx context.Context, params *GetRandomParams) (*GetRandomOkJSONResponse, error) {
 	return GetRandom[GetRandomOkJSONResponse](ctx, c, params)
 }
@@ -51,9 +50,9 @@ func (c *Client) GetRandom(ctx context.Context, params *GetRandomParams) (*GetRa
 // Get a random cat fact
 // You can define a custom result to unmarshal the response into.
 //
-//	GET /random
+//	GET /facts/random
 func GetRandom[R any](ctx context.Context, c *Client, params *GetRandomParams) (*R, error) {
-	u := baseURL.JoinPath("/random")
+	u := baseURL.JoinPath("/facts/random")
 
 	if params != nil && params.Amount != 0 {
 		u.RawQuery = url.Values{"amount": []string{strconv.Itoa(params.Amount)}}.Encode()
