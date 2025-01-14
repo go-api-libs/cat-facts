@@ -155,6 +155,7 @@
         }
       },
       "Status": {
+        "description": "The status of the fact in the database",
         "type": "object",
         "properties": {
           "verified": {
@@ -182,6 +183,7 @@
             "$ref": "#/components/schemas/Status"
           },
           "_id": {
+            "description": "The id of the fact",
             "type": "string",
             "example": "591f9890d369931519ce3564"
           },
@@ -294,10 +296,12 @@
         "type": "object",
         "properties": {
           "first": {
+            "description": "The first name of the user",
             "type": "string",
             "example": "Alex"
           },
           "last": {
+            "description": "The last name of the user",
             "type": "string",
             "example": "Wohlbruck"
           }

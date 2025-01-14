@@ -30,6 +30,7 @@ type Facts []SimpleFact
 
 // SimpleFact defines a model
 type SimpleFact struct {
+	// The status of the fact in the database
 	Status    Status    `json:"status"`
 	ID        string    `json:"_id,omitzero"`
 	User      string    `json:"user,omitzero"`
@@ -41,7 +42,7 @@ type SimpleFact struct {
 	V         int       `json:"__v,omitzero"`
 }
 
-// Status defines a model
+// The status of the fact in the database
 type Status struct {
 	Verified  bool `json:"verified,omitzero"`
 	SentCount int  `json:"sentCount,omitzero"`
@@ -49,7 +50,9 @@ type Status struct {
 
 // Fact defines a model
 type Fact struct {
-	Status    Status    `json:"status"`
+	// The status of the fact in the database
+	Status Status `json:"status"`
+	// The id of the fact
 	ID        string    `json:"_id,omitzero"`
 	V         int       `json:"__v,omitzero"`
 	Text      string    `json:"text,omitzero"`
@@ -71,6 +74,8 @@ type User struct {
 
 // UserName defines a model
 type UserName struct {
+	// The first name of the user
 	First string `json:"first,omitzero"`
-	Last  string `json:"last,omitzero"`
+	// The last name of the user
+	Last string `json:"last,omitzero"`
 }
