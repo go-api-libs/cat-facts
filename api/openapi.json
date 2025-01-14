@@ -297,6 +297,7 @@
         }
       },
       "UserName": {
+        "description": "The name of a user",
         "type": "object",
         "properties": {
           "first": {

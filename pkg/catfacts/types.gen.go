@@ -68,12 +68,13 @@ type Fact struct {
 
 // A user with an account on https://cat-fact.herokuapp.com/
 type User struct {
+	// The name of a user
 	Name  UserName `json:"name"`
 	ID    string   `json:"_id,omitzero"`
 	Photo url.URL  `json:"photo,omitzero"`
 }
 
-// UserName defines a model
+// The name of a user
 type UserName struct {
 	// The first name of the user
 	First string `json:"first,omitzero"`
