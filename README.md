@@ -19,7 +19,7 @@ go get github.com/go-api-libs/cat-facts/pkg/catfacts
 
 ## Usage
 
-### Example 1: Get random cat facts
+### Example 1: Get random animal facts
 
 ```go
 package main
@@ -45,12 +45,12 @@ func main() {
 		panic(err)
 	}
 
-	// Use facts array
+	// Use facts slice
 }
 
 ```
 
-### Example 2: 
+### Example 2: Get a fact by its ID
 
 ```go
 package main

@@ -45,7 +45,7 @@ func NewClient() (*Client, error) {
 	return &Client{cli: http.DefaultClient}, nil
 }
 
-// Returns random cat facts
+// Returns random animal facts
 // NOTE: `amount` parameter must be greater than 1 due to inconsistent responses from the API
 //
 //	GET /facts/random
@@ -54,7 +54,7 @@ func (c *Client) GetRandom(ctx context.Context, params GetRandomParams) (Facts, 
 }
 
 /*
-Returns random cat facts
+Returns random animal facts
 NOTE: `amount` parameter must be greater than 1 due to inconsistent responses from the API
 */
 // You can define a custom result to unmarshal the response into.
@@ -110,14 +110,14 @@ func GetRandom[R any](ctx context.Context, c *Client, params GetRandomParams) (R
 	}
 }
 
-// GetFactByID defines an operation.
+// Get a fact by its ID
 //
 //	GET /facts/{id}
 func (c *Client) GetFactByID(ctx context.Context, id string) (*Fact, error) {
 	return GetFactByID[Fact](ctx, c, id)
 }
 
-// GetFactByID defines an operation.
+// Get a fact by its ID
 // You can define a custom result to unmarshal the response into.
 //
 //	GET /facts/{id}

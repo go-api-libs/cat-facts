@@ -21,8 +21,8 @@
         }
       ],
       "get": {
-        "summary": "Get random cat facts",
-        "description": "Returns random cat facts\nNOTE: `amount` parameter must be greater than 1 due to inconsistent responses from the API",
+        "summary": "Get random animal facts",
+        "description": "Returns random animal facts\nNOTE: `amount` parameter must be greater than 1 due to inconsistent responses from the API",
         "operationId": "GetRandom",
         "responses": {
           "200": {
@@ -36,6 +36,7 @@
     },
     "/facts/{id}": {
       "get": {
+        "summary": "Get a fact by its ID",
         "operationId": "GetFactByID",
         "parameters": [
           {
