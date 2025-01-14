@@ -40,22 +40,32 @@ func NewClient() (*Client, error) {
 	return &Client{cli: http.DefaultClient}, nil
 }
 
-// Get a random cat fact
+// Get random cat facts
 //
 //	GET /facts/random
-func (c *Client) GetRandom(ctx context.Context, params *GetRandomParams) (*GetRandomOkJSONResponse, error) {
-	return GetRandom[GetRandomOkJSONResponse](ctx, c, params)
+func (c *Client) GetRandom(ctx context.Context, params *GetRandomParams) (Facts, error) {
+	return GetRandom[Facts](ctx, c, params)
 }
 
-// Get a random cat fact
+// Get random cat facts
 // You can define a custom result to unmarshal the response into.
 //
 //	GET /facts/random
-func GetRandom[R any](ctx context.Context, c *Client, params *GetRandomParams) (*R, error) {
+func GetRandom[R any](ctx context.Context, c *Client, params *GetRandomParams) (R, error) {
 	u := baseURL.JoinPath("/facts/random")
 
-	if params != nil && params.Amount != 0 {
-		u.RawQuery = url.Values{"amount": []string{strconv.Itoa(params.Amount)}}.Encode()
+	if params != nil {
+		q := make(url.Values, 2)
+
+		if params.Amount != 0 {
+			q["amount"] = []string{strconv.Itoa(params.Amount)}
+		}
+
+		if params.AnimalType != "" {
+			q["animal_type"] = []string{params.AnimalType}
+		}
+
+		u.RawQuery = q.Encode()
 	}
 
 	req := (&http.Request{
@@ -68,30 +78,30 @@ func GetRandom[R any](ctx context.Context, c *Client, params *GetRandomParams) (
 		URL:        u,
 	}).WithContext(ctx)
 
+	var out R
 	rsp, err := c.cli.Do(req)
 	if err != nil {
-		return nil, err
+		return out, err
 	}
 	defer rsp.Body.Close()
 
 	switch rsp.StatusCode {
 	case http.StatusOK:
-		// Returns a cat fact
+		// Returns facts
 		switch mt, _, _ := strings.Cut(rsp.Header.Get("Content-Type"), ";"); mt {
 		case "application/json":
-			var out R
 			if err := json.UnmarshalRead(rsp.Body, &out, jsonOpts); err != nil {
-				return nil, api.WrapDecodingError(rsp, err)
+				return out, api.WrapDecodingError(rsp, err)
 			}
 
-			return &out, nil
+			return out, nil
 		default:
-			return nil, api.NewErrUnknownContentType(rsp)
+			return out, api.NewErrUnknownContentType(rsp)
 		}
 	case http.StatusServiceUnavailable:
 		// Returns an HTML page reporting an application error
-		return nil, api.NewErrStatusCode(rsp)
+		return out, api.NewErrStatusCode(rsp)
 	default:
-		return nil, api.NewErrUnknownStatusCode(rsp)
+		return out, api.NewErrUnknownStatusCode(rsp)
 	}
 }

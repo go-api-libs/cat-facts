@@ -9,7 +9,7 @@ import (
 // probe calls the API server to check what we can do
 func probe() error {
 	// define http calls here, e.g.: http.Get(defaultServerURL + "my-endpoint")
-	_, err := http.Get("https://cat-fact.herokuapp.com/facts/random?amount=1")
+	_, err := http.Get("https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=2")
 	return err
 }
 

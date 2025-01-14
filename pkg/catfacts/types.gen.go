@@ -8,11 +8,15 @@ import "time"
 
 type GetRandomParams struct {
 	// The number of cat facts to return
-	Amount int
+	Amount     int
+	AnimalType string
 }
 
-// GetRandomOkJSONResponse defines a model
-type GetRandomOkJSONResponse struct {
+// Facts defines a model
+type Facts []Fact
+
+// Fact defines a model
+type Fact struct {
 	Status    Status    `json:"status"`
 	ID        string    `json:"_id,omitzero"`
 	User      string    `json:"user,omitzero"`

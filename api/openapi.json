@@ -15,14 +15,17 @@
       "parameters": [
         {
           "$ref": "#/components/parameters/amount"
+        },
+        {
+          "$ref": "#/components/parameters/animal_type"
         }
       ],
       "get": {
-        "summary": "Get a random cat fact",
+        "summary": "Get random cat facts",
         "operationId": "GetRandom",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/CatFactResponse"
+            "$ref": "#/components/responses/FactsResponse"
           },
           "503": {
             "$ref": "#/components/responses/ServiceUnavailableResponse"
@@ -33,7 +36,43 @@
   },
   "components": {
     "schemas": {
-      "GetRandomOkJSONResponse": {
+      "Facts": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Fact"
+        },
+        "example": [
+          {
+            "status": {
+              "verified": null,
+              "sentCount": 0
+            },
+            "_id": "6463fd41456e48f65d7ac18d",
+            "user": "644fac390388a3c767567e01",
+            "text": "Кошки 444.",
+            "type": "cat",
+            "deleted": false,
+            "createdAt": "2023-05-16T22:01:37.668Z",
+            "updatedAt": "2023-05-16T22:01:37.668Z",
+            "__v": 0
+          },
+          {
+            "status": {
+              "verified": null,
+              "sentCount": 0
+            },
+            "_id": "652d3f1f1a09405c8cd690be",
+            "user": "6512f2e1b7e431fd03974c81",
+            "text": "New cat facts.",
+            "type": "cat",
+            "deleted": false,
+            "createdAt": "2023-10-16T13:48:15.729Z",
+            "updatedAt": "2023-10-16T13:48:15.729Z",
+            "__v": 0
+          }
+        ]
+      },
+      "Fact": {
         "type": "object",
         "properties": {
           "status": {
@@ -131,12 +170,12 @@
           }
         }
       },
-      "CatFactResponse": {
-        "description": "Returns a cat fact",
+      "FactsResponse": {
+        "description": "Returns facts",
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/GetRandomOkJSONResponse"
+              "$ref": "#/components/schemas/Facts"
             },
             "example": {
               "status": {
@@ -166,6 +205,15 @@
           "example": 1
         },
         "example": 1
+      },
+      "animal_type": {
+        "name": "animal_type",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "example": "cat"
+        },
+        "example": "cat"
       }
     }
   },
