@@ -392,7 +392,7 @@
       "amount": {
         "name": "amount",
         "in": "query",
-        "description": "The number of cat facts to return",
+        "description": "The number of cat facts to return\nNOTE: Must be greater than 1 due to inconsistent response from the API",
         "required": true,
         "schema": {
           "type": "integer",
