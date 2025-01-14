@@ -393,8 +393,15 @@
       "animal_type": {
         "name": "animal_type",
         "in": "query",
+        "description": "The type of animal",
         "schema": {
           "type": "string",
+          "enum": [
+            "cat",
+            "dog",
+            "snail",
+            "horse"
+          ],
           "example": "cat"
         },
         "example": "cat"
@@ -402,6 +409,7 @@
       "id": {
         "name": "id",
         "in": "path",
+        "description": "The id of a fact",
         "required": true,
         "schema": {
           "type": "string",

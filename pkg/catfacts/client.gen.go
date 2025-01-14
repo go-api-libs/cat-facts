@@ -67,7 +67,7 @@ func GetRandom[R any](ctx context.Context, c *Client, params *GetRandomParams) (
 		}
 
 		if params.AnimalType != "" {
-			q["animal_type"] = []string{params.AnimalType}
+			q["animal_type"] = []string{string(params.AnimalType)}
 		}
 
 		u.RawQuery = q.Encode()

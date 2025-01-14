@@ -11,9 +11,19 @@ import (
 
 type GetRandomParams struct {
 	// The number of cat facts to return
-	Amount     int
-	AnimalType string
+	Amount int
+	// The type of animal
+	AnimalType AnimalType
 }
+
+type AnimalType string
+
+const (
+	AnimalTypeCat   AnimalType = "cat"
+	AnimalTypeDog   AnimalType = "dog"
+	AnimalTypeSnail AnimalType = "snail"
+	AnimalTypeHorse AnimalType = "horse"
+)
 
 // Facts defines a model
 type Facts []SimpleFact
