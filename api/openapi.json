@@ -220,7 +220,7 @@
             "example": false
           },
           "user": {
-            "$ref": "#/components/schemas/FactUser"
+            "$ref": "#/components/schemas/User"
           }
         },
         "required": [
@@ -260,11 +260,11 @@
           }
         }
       },
-      "FactUser": {
+      "User": {
         "type": "object",
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/FactUserName"
+            "$ref": "#/components/schemas/UserName"
           },
           "_id": {
             "type": "string",
@@ -290,7 +290,7 @@
           "photo": "https://lh3.googleusercontent.com/a/ACg8ocJDXN6nxC9SDuxWqEpuFQTmqzjGD1J-TnV5zbAJ3yiPWxPO=s50"
         }
       },
-      "FactUserName": {
+      "UserName": {
         "type": "object",
         "properties": {
           "first": {

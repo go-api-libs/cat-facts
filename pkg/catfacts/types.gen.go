@@ -49,18 +49,18 @@ type Fact struct {
 	CreatedAt time.Time `json:"createdAt,omitzero"`
 	Deleted   bool      `json:"deleted,omitzero"`
 	Used      bool      `json:"used,omitzero"`
-	User      FactUser  `json:"user"`
+	User      User      `json:"user"`
 }
 
-// FactUser defines a model
-type FactUser struct {
-	Name  FactUserName `json:"name"`
-	ID    string       `json:"_id,omitzero"`
-	Photo url.URL      `json:"photo,omitzero"`
+// User defines a model
+type User struct {
+	Name  UserName `json:"name"`
+	ID    string   `json:"_id,omitzero"`
+	Photo url.URL  `json:"photo,omitzero"`
 }
 
-// FactUserName defines a model
-type FactUserName struct {
+// UserName defines a model
+type UserName struct {
 	First string `json:"first,omitzero"`
 	Last  string `json:"last,omitzero"`
 }
