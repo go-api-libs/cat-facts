@@ -25,7 +25,8 @@ interactions:
         trailer: {}
         content_length: 270
         uncompressed: false
-        body: '{"status":{"verified":true,"sentCount":1},"_id":"591f9890d369931519ce3564","user":"5a9ac18c7478810ea6c06381","text":"A cats normal pulse is 140-240 beats per minute, with an average of 195.","type":"cat","deleted":false,"createdAt":"2018-08-04T20:20:02.737Z","updatedAt":"2020-08-23T20:20:01.611Z","__v":0}'
+        body: |
+            {"status":{"verified":true,"sentCount":1},"_id":"591f9890d369931519ce3564","user":"5a9ac18c7478810ea6c06381","text":"A cat's normal pulse is 140-240 beats per minute, with an average of 195.","type":"cat","deleted":false,"createdAt":"2018-08-04T20:20:02.737Z","updatedAt":"2020-08-23T20:20:01.611Z","__v":0}
         headers:
             Access-Control-Allow-Origin:
                 - '*'
