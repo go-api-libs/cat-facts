@@ -25,10 +25,10 @@ const (
 	AnimalTypeHorse AnimalType = "horse"
 )
 
-// Facts defines a model
+// A slice of simple fact objects
 type Facts []SimpleFact
 
-// SimpleFact defines a model
+// A fact object without detailed information
 type SimpleFact struct {
 	// The status of the fact in the database
 	Status    Status    `json:"status"`
@@ -48,7 +48,7 @@ type Status struct {
 	SentCount int  `json:"sentCount,omitzero"`
 }
 
-// Fact defines a model
+// A fact about an animal with meta information
 type Fact struct {
 	// The status of the fact in the database
 	Status Status `json:"status"`
@@ -62,10 +62,11 @@ type Fact struct {
 	CreatedAt time.Time `json:"createdAt,omitzero"`
 	Deleted   bool      `json:"deleted,omitzero"`
 	Used      bool      `json:"used,omitzero"`
-	User      User      `json:"user"`
+	// A user with an account on https://cat-fact.herokuapp.com/
+	User User `json:"user"`
 }
 
-// User defines a model
+// A user with an account on https://cat-fact.herokuapp.com/
 type User struct {
 	Name  UserName `json:"name"`
 	ID    string   `json:"_id,omitzero"`

@@ -52,6 +52,7 @@
   "components": {
     "schemas": {
       "Facts": {
+        "description": "A slice of simple fact objects",
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/SimpleFact"
@@ -88,6 +89,7 @@
         ]
       },
       "SimpleFact": {
+        "description": "A fact object without detailed information",
         "type": "object",
         "properties": {
           "status": {
@@ -177,6 +179,7 @@
         }
       },
       "Fact": {
+        "description": "A fact about an animal with meta information",
         "type": "object",
         "properties": {
           "status": {
@@ -263,6 +266,7 @@
         }
       },
       "User": {
+        "description": "A user with an account on https://cat-fact.herokuapp.com/",
         "type": "object",
         "properties": {
           "name": {
