@@ -39,17 +39,17 @@ type Status struct {
 
 // Fact defines a model
 type Fact struct {
-	Status    FactStatus `json:"status"`
-	ID        string     `json:"_id,omitzero"`
-	V         int        `json:"__v,omitzero"`
-	Text      string     `json:"text,omitzero"`
-	Source    string     `json:"source,omitzero"`
-	UpdatedAt time.Time  `json:"updatedAt,omitzero"`
-	Type      string     `json:"type,omitzero"`
-	CreatedAt time.Time  `json:"createdAt,omitzero"`
-	Deleted   bool       `json:"deleted,omitzero"`
-	Used      bool       `json:"used,omitzero"`
-	User      FactUser   `json:"user"`
+	Status    Status    `json:"status"`
+	ID        string    `json:"_id,omitzero"`
+	V         int       `json:"__v,omitzero"`
+	Text      string    `json:"text,omitzero"`
+	Source    string    `json:"source,omitzero"`
+	UpdatedAt time.Time `json:"updatedAt,omitzero"`
+	Type      string    `json:"type,omitzero"`
+	CreatedAt time.Time `json:"createdAt,omitzero"`
+	Deleted   bool      `json:"deleted,omitzero"`
+	Used      bool      `json:"used,omitzero"`
+	User      FactUser  `json:"user"`
 }
 
 // FactUser defines a model
@@ -63,10 +63,4 @@ type FactUser struct {
 type FactUserName struct {
 	First string `json:"first,omitzero"`
 	Last  string `json:"last,omitzero"`
-}
-
-// FactStatus defines a model
-type FactStatus struct {
-	Verified  bool `json:"verified,omitzero"`
-	SentCount int  `json:"sentCount,omitzero"`
 }
