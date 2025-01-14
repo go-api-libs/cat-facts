@@ -104,11 +104,12 @@
         "type": "object",
         "properties": {
           "verified": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "sentCount": {
             "type": "integer",
-            "example": 0
+            "example": 1
           }
         },
         "required": [

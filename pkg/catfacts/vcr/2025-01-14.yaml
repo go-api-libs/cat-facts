@@ -25,7 +25,7 @@ interactions:
         trailer: {}
         content_length: 270
         uncompressed: false
-        body: '{"status":{"verified":null,"sentCount":0},"_id":"62431ec2fade95100ddbf0b8","user":"62418051a7107c0e136dc22c","text":"I submit a new cat fact for testing.","type":"cat","deleted":false,"createdAt":"2022-03-29T14:59:14.152Z","updatedAt":"2022-03-29T14:59:14.152Z","__v":0}'
+        body: '{"status":{"verified":true,"sentCount":0},"_id":"62431ec2fade95100ddbf0b8","user":"62418051a7107c0e136dc22c","text":"I submit a new cat fact for testing.","type":"cat","deleted":false,"createdAt":"2022-03-29T14:59:14.152Z","updatedAt":"2022-03-29T14:59:14.152Z","__v":0}'
         headers:
             Access-Control-Allow-Origin:
                 - '*'
