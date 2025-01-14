@@ -16,10 +16,10 @@ type GetRandomParams struct {
 }
 
 // Facts defines a model
-type Facts []Fact
+type Facts []SimpleFact
 
-// Fact defines a model
-type Fact struct {
+// SimpleFact defines a model
+type SimpleFact struct {
 	Status    Status    `json:"status"`
 	ID        string    `json:"_id,omitzero"`
 	User      string    `json:"user,omitzero"`

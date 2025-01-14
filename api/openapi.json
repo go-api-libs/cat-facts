@@ -54,7 +54,7 @@
       "Facts": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/Fact"
+          "$ref": "#/components/schemas/SimpleFact"
         },
         "example": [
           {
@@ -87,7 +87,7 @@
           }
         ]
       },
-      "Fact": {
+      "SimpleFact": {
         "type": "object",
         "properties": {
           "status": {
