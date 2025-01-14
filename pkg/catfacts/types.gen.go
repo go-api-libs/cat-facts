@@ -4,7 +4,10 @@
 
 package catfacts
 
-import "time"
+import (
+	"net/url"
+	"time"
+)
 
 type GetRandomParams struct {
 	// The number of cat facts to return
@@ -30,6 +33,40 @@ type Fact struct {
 
 // Status defines a model
 type Status struct {
+	Verified  bool `json:"verified,omitzero"`
+	SentCount int  `json:"sentCount,omitzero"`
+}
+
+// GetFacts591f9890d369931519ce3564OkJSONResponse defines a model
+type GetFacts591f9890d369931519ce3564OkJSONResponse struct {
+	Status    GetFacts591f9890d369931519ce3564OkJSONResponseStatus `json:"status"`
+	ID        string                                               `json:"_id,omitzero"`
+	V         int                                                  `json:"__v,omitzero"`
+	Text      string                                               `json:"text,omitzero"`
+	Source    string                                               `json:"source,omitzero"`
+	UpdatedAt time.Time                                            `json:"updatedAt,omitzero"`
+	Type      string                                               `json:"type,omitzero"`
+	CreatedAt time.Time                                            `json:"createdAt,omitzero"`
+	Deleted   bool                                                 `json:"deleted,omitzero"`
+	Used      bool                                                 `json:"used,omitzero"`
+	User      GetFacts591f9890d369931519ce3564OkJSONResponseUser   `json:"user"`
+}
+
+// GetFacts591f9890d369931519ce3564OkJSONResponseUser defines a model
+type GetFacts591f9890d369931519ce3564OkJSONResponseUser struct {
+	Name  GetFacts591f9890d369931519ce3564OkJSONResponseUserName `json:"name"`
+	ID    string                                                 `json:"_id,omitzero"`
+	Photo url.URL                                                `json:"photo,omitzero"`
+}
+
+// GetFacts591f9890d369931519ce3564OkJSONResponseUserName defines a model
+type GetFacts591f9890d369931519ce3564OkJSONResponseUserName struct {
+	First string `json:"first,omitzero"`
+	Last  string `json:"last,omitzero"`
+}
+
+// GetFacts591f9890d369931519ce3564OkJSONResponseStatus defines a model
+type GetFacts591f9890d369931519ce3564OkJSONResponseStatus struct {
 	Verified  bool `json:"verified,omitzero"`
 	SentCount int  `json:"sentCount,omitzero"`
 }

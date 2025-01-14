@@ -32,6 +32,16 @@
           }
         }
       }
+    },
+    "/facts/591f9890d369931519ce3564": {
+      "get": {
+        "operationId": "GetFacts591f9890d369931519ce3564",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/GetFacts591f9890d369931519ce3564OkResponse"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -159,6 +169,163 @@
           "verified": true,
           "sentCount": 0
         }
+      },
+      "GetFacts591f9890d369931519ce3564OkJSONResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/GetFacts591f9890d369931519ce3564OkJSONResponseStatus"
+          },
+          "_id": {
+            "type": "string",
+            "example": "591f9890d369931519ce3564"
+          },
+          "__v": {
+            "type": "integer",
+            "example": 0
+          },
+          "text": {
+            "type": "string",
+            "example": "A cat's normal pulse is 140-240 beats per minute, with an average of 195."
+          },
+          "source": {
+            "type": "string",
+            "example": "api"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2020-08-23T20:20:01.611Z"
+          },
+          "type": {
+            "type": "string",
+            "example": "cat"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2018-08-04T20:20:02.737Z"
+          },
+          "deleted": {
+            "type": "boolean",
+            "example": false
+          },
+          "used": {
+            "type": "boolean",
+            "example": false
+          },
+          "user": {
+            "$ref": "#/components/schemas/GetFacts591f9890d369931519ce3564OkJSONResponseUser"
+          }
+        },
+        "required": [
+          "status",
+          "_id",
+          "__v",
+          "text",
+          "source",
+          "updatedAt",
+          "type",
+          "createdAt",
+          "deleted",
+          "used",
+          "user"
+        ],
+        "example": {
+          "status": {
+            "verified": true,
+            "sentCount": 1
+          },
+          "_id": "591f9890d369931519ce3564",
+          "__v": 0,
+          "text": "A cat's normal pulse is 140-240 beats per minute, with an average of 195.",
+          "source": "api",
+          "updatedAt": "2020-08-23T20:20:01.611Z",
+          "type": "cat",
+          "createdAt": "2018-08-04T20:20:02.737Z",
+          "deleted": false,
+          "used": false,
+          "user": {
+            "name": {
+              "first": "Alex",
+              "last": "Wohlbruck"
+            },
+            "_id": "5a9ac18c7478810ea6c06381",
+            "photo": "https://lh3.googleusercontent.com/a/ACg8ocJDXN6nxC9SDuxWqEpuFQTmqzjGD1J-TnV5zbAJ3yiPWxPO=s50"
+          }
+        }
+      },
+      "GetFacts591f9890d369931519ce3564OkJSONResponseUser": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/GetFacts591f9890d369931519ce3564OkJSONResponseUserName"
+          },
+          "_id": {
+            "type": "string",
+            "example": "5a9ac18c7478810ea6c06381"
+          },
+          "photo": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://lh3.googleusercontent.com/a/ACg8ocJDXN6nxC9SDuxWqEpuFQTmqzjGD1J-TnV5zbAJ3yiPWxPO=s50"
+          }
+        },
+        "required": [
+          "name",
+          "_id",
+          "photo"
+        ],
+        "example": {
+          "name": {
+            "first": "Alex",
+            "last": "Wohlbruck"
+          },
+          "_id": "5a9ac18c7478810ea6c06381",
+          "photo": "https://lh3.googleusercontent.com/a/ACg8ocJDXN6nxC9SDuxWqEpuFQTmqzjGD1J-TnV5zbAJ3yiPWxPO=s50"
+        }
+      },
+      "GetFacts591f9890d369931519ce3564OkJSONResponseUserName": {
+        "type": "object",
+        "properties": {
+          "first": {
+            "type": "string",
+            "example": "Alex"
+          },
+          "last": {
+            "type": "string",
+            "example": "Wohlbruck"
+          }
+        },
+        "required": [
+          "first",
+          "last"
+        ],
+        "example": {
+          "first": "Alex",
+          "last": "Wohlbruck"
+        }
+      },
+      "GetFacts591f9890d369931519ce3564OkJSONResponseStatus": {
+        "type": "object",
+        "properties": {
+          "verified": {
+            "type": "boolean",
+            "example": true
+          },
+          "sentCount": {
+            "type": "integer",
+            "example": 1
+          }
+        },
+        "required": [
+          "verified",
+          "sentCount"
+        ],
+        "example": {
+          "verified": true,
+          "sentCount": 1
+        }
       }
     },
     "responses": {
@@ -190,6 +357,39 @@
               "createdAt": "2018-08-04T20:20:02.737Z",
               "updatedAt": "2020-08-23T20:20:01.611Z",
               "__v": 0
+            }
+          }
+        }
+      },
+      "GetFacts591f9890d369931519ce3564OkResponse": {
+        "description": "TODO",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/GetFacts591f9890d369931519ce3564OkJSONResponse"
+            },
+            "example": {
+              "status": {
+                "verified": true,
+                "sentCount": 1
+              },
+              "_id": "591f9890d369931519ce3564",
+              "__v": 0,
+              "text": "A cat's normal pulse is 140-240 beats per minute, with an average of 195.",
+              "source": "api",
+              "updatedAt": "2020-08-23T20:20:01.611Z",
+              "type": "cat",
+              "createdAt": "2018-08-04T20:20:02.737Z",
+              "deleted": false,
+              "used": false,
+              "user": {
+                "name": {
+                  "first": "Alex",
+                  "last": "Wohlbruck"
+                },
+                "_id": "5a9ac18c7478810ea6c06381",
+                "photo": "https://lh3.googleusercontent.com/a/ACg8ocJDXN6nxC9SDuxWqEpuFQTmqzjGD1J-TnV5zbAJ3yiPWxPO=s50"
+              }
             }
           }
         }

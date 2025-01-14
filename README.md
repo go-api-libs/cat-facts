@@ -3,7 +3,7 @@
 [![Official Documentation](https://img.shields.io/badge/docs-API-blue)](https://alexwohlbruck.github.io/cat-facts/docs/)
 [![OpenAPI](https://img.shields.io/badge/OpenAPI-3.1-blue)](/api/openapi.json)
 [![Go Report Card](https://goreportcard.com/badge/github.com/go-api-libs/cat-facts)](https://goreportcard.com/report/github.com/go-api-libs/cat-facts)
-![Code Coverage](https://img.shields.io/badge/coverage-32%25-orange)
+![Code Coverage](https://img.shields.io/badge/coverage-43%25-orange)
 ![API Health](https://img.shields.io/badge/API_health-89%25-green)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
@@ -19,7 +19,7 @@ go get github.com/go-api-libs/cat-facts/pkg/catfacts
 
 ## Usage
 
-### Example: Get random cat facts
+### Example 1: Get random cat facts
 
 ```go
 package main
@@ -46,6 +46,34 @@ func main() {
 	}
 
 	// Use facts array
+}
+
+```
+
+### Example 2: 
+
+```go
+package main
+
+import (
+	"context"
+
+	"github.com/go-api-libs/cat-facts/pkg/catfacts"
+)
+
+func main() {
+	c, err := catfacts.NewClient()
+	if err != nil {
+		panic(err)
+	}
+
+	ctx := context.Background()
+	getFacts591f9890d369931519ce3564OkJSONResponse, err := c.GetFacts591f9890d369931519ce3564(ctx)
+	if err != nil {
+		panic(err)
+	}
+
+	// Use getFacts591f9890d369931519ce3564OkJSONResponse object
 }
 
 ```

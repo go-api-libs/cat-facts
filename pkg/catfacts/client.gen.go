@@ -11,6 +11,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/MarkRosemaker/jsonutil"
 	"github.com/go-api-libs/api"
 	"github.com/go-json-experiment/json"
 )
@@ -26,7 +27,11 @@ var (
 	}
 
 	jsonOpts = json.JoinOptions(
-		json.RejectUnknownMembers(true))
+		json.RejectUnknownMembers(true),
+		json.WithMarshalers(json.NewMarshalers(
+			json.MarshalFuncV2(jsonutil.URLMarshal))),
+		json.WithUnmarshalers(json.NewUnmarshalers(
+			json.UnmarshalFuncV2(jsonutil.URLUnmarshal))))
 )
 
 // Client conforms to the OpenAPI3 specification for this service.
@@ -103,5 +108,53 @@ func GetRandom[R any](ctx context.Context, c *Client, params *GetRandomParams) (
 		return out, api.NewErrStatusCode(rsp)
 	default:
 		return out, api.NewErrUnknownStatusCode(rsp)
+	}
+}
+
+// GetFacts591f9890d369931519ce3564 defines an operation.
+//
+//	GET /facts/591f9890d369931519ce3564
+func (c *Client) GetFacts591f9890d369931519ce3564(ctx context.Context) (*GetFacts591f9890d369931519ce3564OkJSONResponse, error) {
+	return GetFacts591f9890d369931519ce3564[GetFacts591f9890d369931519ce3564OkJSONResponse](ctx, c)
+}
+
+// GetFacts591f9890d369931519ce3564 defines an operation.
+// You can define a custom result to unmarshal the response into.
+//
+//	GET /facts/591f9890d369931519ce3564
+func GetFacts591f9890d369931519ce3564[R any](ctx context.Context, c *Client) (*R, error) {
+	u := baseURL.JoinPath("/facts/591f9890d369931519ce3564")
+	req := (&http.Request{
+		Header:     http.Header{"User-Agent": []string{userAgent}},
+		Host:       u.Host,
+		Method:     http.MethodGet,
+		Proto:      "HTTP/1.1",
+		ProtoMajor: 1,
+		ProtoMinor: 1,
+		URL:        u,
+	}).WithContext(ctx)
+
+	rsp, err := c.cli.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer rsp.Body.Close()
+
+	switch rsp.StatusCode {
+	case http.StatusOK:
+		// TODO
+		switch mt, _, _ := strings.Cut(rsp.Header.Get("Content-Type"), ";"); mt {
+		case "application/json":
+			var out R
+			if err := json.UnmarshalRead(rsp.Body, &out, jsonOpts); err != nil {
+				return nil, api.WrapDecodingError(rsp, err)
+			}
+
+			return &out, nil
+		default:
+			return nil, api.NewErrUnknownContentType(rsp)
+		}
+	default:
+		return nil, api.NewErrUnknownStatusCode(rsp)
 	}
 }
