@@ -399,7 +399,8 @@
         "schema": {
           "type": "integer",
           "example": 2,
-          "min": 2
+          "min": 2,
+          "max": 500
         },
         "example": 2
       },
