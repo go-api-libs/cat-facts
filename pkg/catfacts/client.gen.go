@@ -41,14 +41,14 @@ func NewClient() (*Client, error) {
 	return &Client{cli: http.DefaultClient}, nil
 }
 
-// Get random cat facts
+// Get a random cat fact
 //
 //	GET /random
 func (c *Client) GetRandom(ctx context.Context, params *GetRandomParams) (*GetRandomOkJSONResponse, error) {
 	return GetRandom[GetRandomOkJSONResponse](ctx, c, params)
 }
 
-// Get random cat facts
+// Get a random cat fact
 // You can define a custom result to unmarshal the response into.
 //
 //	GET /random
@@ -76,11 +76,8 @@ func GetRandom[R any](ctx context.Context, c *Client, params *GetRandomParams) (
 	defer rsp.Body.Close()
 
 	switch rsp.StatusCode {
-	case http.StatusServiceUnavailable:
-		// Returns an HTML page reporting an application error
-		return nil, api.NewErrStatusCode(rsp)
 	case http.StatusOK:
-		// TODO
+		// Returns a cat fact
 		switch mt, _, _ := strings.Cut(rsp.Header.Get("Content-Type"), ";"); mt {
 		case "application/json":
 			var out R
@@ -92,6 +89,9 @@ func GetRandom[R any](ctx context.Context, c *Client, params *GetRandomParams) (
 		default:
 			return nil, api.NewErrUnknownContentType(rsp)
 		}
+	case http.StatusServiceUnavailable:
+		// Returns an HTML page reporting an application error
+		return nil, api.NewErrStatusCode(rsp)
 	default:
 		return nil, api.NewErrUnknownStatusCode(rsp)
 	}
