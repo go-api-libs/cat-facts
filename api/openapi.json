@@ -18,14 +18,14 @@
         }
       ],
       "get": {
-        "summary": "Get random cat facts",
+        "summary": "Get a random cat fact",
         "operationId": "GetRandom",
         "responses": {
+          "200": {
+            "$ref": "#/components/responses/CatFactResponse"
+          },
           "503": {
             "$ref": "#/components/responses/ServiceUnavailableResponse"
-          },
-          "200": {
-            "$ref": "#/components/responses/GetRandomOkResponse"
           }
         }
       }
@@ -41,15 +41,15 @@
           },
           "_id": {
             "type": "string",
-            "example": "6410831b2382a2c7c21a222b"
+            "example": "591f9890d369931519ce3564"
           },
           "user": {
             "type": "string",
-            "example": "63fb745efcf661e5a0978073"
+            "example": "5a9ac18c7478810ea6c06381"
           },
           "text": {
             "type": "string",
-            "example": "Привет кот чад."
+            "example": "A cat's normal pulse is 140-240 beats per minute, with an average of 195."
           },
           "type": {
             "type": "string",
@@ -62,12 +62,12 @@
           "createdAt": {
             "type": "string",
             "format": "date-time",
-            "example": "2023-03-14T14:22:19.984Z"
+            "example": "2018-08-04T20:20:02.737Z"
           },
           "updatedAt": {
             "type": "string",
             "format": "date-time",
-            "example": "2023-03-14T14:22:19.984Z"
+            "example": "2020-08-23T20:20:01.611Z"
           },
           "__v": {
             "type": "integer",
@@ -87,16 +87,16 @@
         ],
         "example": {
           "status": {
-            "verified": null,
-            "sentCount": 0
+            "verified": true,
+            "sentCount": 1
           },
-          "_id": "6410831b2382a2c7c21a222b",
-          "user": "63fb745efcf661e5a0978073",
-          "text": "Привет кот чад.",
+          "_id": "591f9890d369931519ce3564",
+          "user": "5a9ac18c7478810ea6c06381",
+          "text": "A cat's normal pulse is 140-240 beats per minute, with an average of 195.",
           "type": "cat",
           "deleted": false,
-          "createdAt": "2023-03-14T14:22:19.984Z",
-          "updatedAt": "2023-03-14T14:22:19.984Z",
+          "createdAt": "2018-08-04T20:20:02.737Z",
+          "updatedAt": "2020-08-23T20:20:01.611Z",
           "__v": 0
         }
       },
@@ -116,7 +116,7 @@
           "sentCount"
         ],
         "example": {
-          "verified": null,
+          "verified": true,
           "sentCount": 0
         }
       }
@@ -130,8 +130,8 @@
           }
         }
       },
-      "GetRandomOkResponse": {
-        "description": "TODO",
+      "CatFactResponse": {
+        "description": "Returns a cat fact",
         "content": {
           "application/json": {
             "schema": {
@@ -139,16 +139,16 @@
             },
             "example": {
               "status": {
-                "verified": null,
+                "verified": true,
                 "sentCount": 0
               },
-              "_id": "6410831b2382a2c7c21a222b",
-              "user": "63fb745efcf661e5a0978073",
-              "text": "Привет кот чад.",
+              "_id": "591f9890d369931519ce3564",
+              "user": "5a9ac18c7478810ea6c06381",
+              "text": "A cat's normal pulse is 140-240 beats per minute, with an average of 195.",
               "type": "cat",
               "deleted": false,
-              "createdAt": "2023-03-14T14:22:19.984Z",
-              "updatedAt": "2023-03-14T14:22:19.984Z",
+              "createdAt": "2018-08-04T20:20:02.737Z",
+              "updatedAt": "2020-08-23T20:20:01.611Z",
               "__v": 0
             }
           }
