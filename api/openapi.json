@@ -37,7 +37,7 @@
         "type": "object",
         "properties": {
           "status": {
-            "$ref": "#/components/schemas/GetRandomOkJSONResponseStatus"
+            "$ref": "#/components/schemas/Status"
           },
           "_id": {
             "type": "string",
@@ -100,7 +100,7 @@
           "__v": 0
         }
       },
-      "GetRandomOkJSONResponseStatus": {
+      "Status": {
         "type": "object",
         "properties": {
           "verified": {
