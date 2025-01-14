@@ -111,18 +111,18 @@ func GetRandom[R any](ctx context.Context, c *Client, params *GetRandomParams) (
 	}
 }
 
-// GetFacts591f9890d369931519ce3564 defines an operation.
+// GetFactByID defines an operation.
 //
 //	GET /facts/{id}
-func (c *Client) GetFacts591f9890d369931519ce3564(ctx context.Context, id string) (*GetFacts591f9890d369931519ce3564OkJSONResponse, error) {
-	return GetFacts591f9890d369931519ce3564[GetFacts591f9890d369931519ce3564OkJSONResponse](ctx, c, id)
+func (c *Client) GetFactByID(ctx context.Context, id string) (*GetFactByIDOkJSONResponse, error) {
+	return GetFactByID[GetFactByIDOkJSONResponse](ctx, c, id)
 }
 
-// GetFacts591f9890d369931519ce3564 defines an operation.
+// GetFactByID defines an operation.
 // You can define a custom result to unmarshal the response into.
 //
 //	GET /facts/{id}
-func GetFacts591f9890d369931519ce3564[R any](ctx context.Context, c *Client, id string) (*R, error) {
+func GetFactByID[R any](ctx context.Context, c *Client, id string) (*R, error) {
 	u := baseURL.JoinPath("facts", id)
 	req := (&http.Request{
 		Header:     http.Header{"User-Agent": []string{userAgent}},
@@ -142,7 +142,7 @@ func GetFacts591f9890d369931519ce3564[R any](ctx context.Context, c *Client, id 
 
 	switch rsp.StatusCode {
 	case http.StatusOK:
-		// TODO
+		// Returns a fact
 		switch mt, _, _ := strings.Cut(rsp.Header.Get("Content-Type"), ";"); mt {
 		case "application/json":
 			var out R

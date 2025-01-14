@@ -53,7 +53,7 @@ func TestClient_Error(t *testing.T) {
 			t.Fatalf("want: %v, got: %v", testErr, err)
 		}
 
-		if _, err := c.GetFacts591f9890d369931519ce3564(ctx, "591f9890d369931519ce3564"); err == nil {
+		if _, err := c.GetFactByID(ctx, "591f9890d369931519ce3564"); err == nil {
 			t.Fatal("expected error")
 		} else if !errors.Is(err, testErr) {
 			t.Fatalf("want: %v, got: %v", testErr, err)
@@ -108,11 +108,11 @@ func TestClient_Error(t *testing.T) {
 			}
 		})
 
-		t.Run("GetFacts591f9890d369931519ce3564", func(t *testing.T) {
+		t.Run("GetFactByID", func(t *testing.T) {
 			// unknown status code
 			http.DefaultClient.Transport = &testRoundTripper{rsp: &http.Response{StatusCode: http.StatusTeapot}}
 
-			if _, err := c.GetFacts591f9890d369931519ce3564(ctx, "591f9890d369931519ce3564"); err == nil {
+			if _, err := c.GetFactByID(ctx, "591f9890d369931519ce3564"); err == nil {
 				t.Fatal("expected error")
 			} else if !errors.Is(err, api.ErrUnknownStatusCode) {
 				t.Fatalf("want: %v, got: %v", api.ErrUnknownStatusCode, err)
@@ -124,7 +124,7 @@ func TestClient_Error(t *testing.T) {
 				StatusCode: http.StatusOK,
 			}}
 
-			if _, err := c.GetFacts591f9890d369931519ce3564(ctx, "591f9890d369931519ce3564"); err == nil {
+			if _, err := c.GetFactByID(ctx, "591f9890d369931519ce3564"); err == nil {
 				t.Fatal("expected error")
 			} else if !errors.Is(err, api.ErrUnknownContentType) {
 				t.Fatalf("want: %v, got: %v", api.ErrUnknownContentType, err)
@@ -137,7 +137,7 @@ func TestClient_Error(t *testing.T) {
 				StatusCode: http.StatusOK,
 			}}
 
-			if _, err := c.GetFacts591f9890d369931519ce3564(ctx, "591f9890d369931519ce3564"); err == nil {
+			if _, err := c.GetFactByID(ctx, "591f9890d369931519ce3564"); err == nil {
 				t.Fatal("expected error")
 			} else if !errors.As(err, &errDecode) {
 				t.Fatalf("want: %v, got: %v", errDecode, err)
@@ -246,7 +246,7 @@ func TestClient_VCR(t *testing.T) {
 		}
 
 		{
-			res, err := c.GetFacts591f9890d369931519ce3564(ctx, "591f9890d369931519ce3564")
+			res, err := c.GetFactByID(ctx, "591f9890d369931519ce3564")
 			if err != nil {
 				t.Fatal(err)
 			} else if res == nil {

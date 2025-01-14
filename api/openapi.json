@@ -35,7 +35,7 @@
     },
     "/facts/{id}": {
       "get": {
-        "operationId": "GetFacts591f9890d369931519ce3564",
+        "operationId": "GetFactByID",
         "parameters": [
           {
             "$ref": "#/components/parameters/id"
@@ -43,7 +43,7 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/GetFacts591f9890d369931519ce3564OkResponse"
+            "$ref": "#/components/responses/FactResponse"
           }
         }
       }
@@ -175,11 +175,11 @@
           "sentCount": 0
         }
       },
-      "GetFacts591f9890d369931519ce3564OkJSONResponse": {
+      "GetFactByIDOkJSONResponse": {
         "type": "object",
         "properties": {
           "status": {
-            "$ref": "#/components/schemas/GetFacts591f9890d369931519ce3564OkJSONResponseStatus"
+            "$ref": "#/components/schemas/GetFactByIDOkJSONResponseStatus"
           },
           "_id": {
             "type": "string",
@@ -220,7 +220,7 @@
             "example": false
           },
           "user": {
-            "$ref": "#/components/schemas/GetFacts591f9890d369931519ce3564OkJSONResponseUser"
+            "$ref": "#/components/schemas/GetFactByIDOkJSONResponseUser"
           }
         },
         "required": [
@@ -260,11 +260,11 @@
           }
         }
       },
-      "GetFacts591f9890d369931519ce3564OkJSONResponseUser": {
+      "GetFactByIDOkJSONResponseUser": {
         "type": "object",
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/GetFacts591f9890d369931519ce3564OkJSONResponseUserName"
+            "$ref": "#/components/schemas/GetFactByIDOkJSONResponseUserName"
           },
           "_id": {
             "type": "string",
@@ -290,7 +290,7 @@
           "photo": "https://lh3.googleusercontent.com/a/ACg8ocJDXN6nxC9SDuxWqEpuFQTmqzjGD1J-TnV5zbAJ3yiPWxPO=s50"
         }
       },
-      "GetFacts591f9890d369931519ce3564OkJSONResponseUserName": {
+      "GetFactByIDOkJSONResponseUserName": {
         "type": "object",
         "properties": {
           "first": {
@@ -311,7 +311,7 @@
           "last": "Wohlbruck"
         }
       },
-      "GetFacts591f9890d369931519ce3564OkJSONResponseStatus": {
+      "GetFactByIDOkJSONResponseStatus": {
         "type": "object",
         "properties": {
           "verified": {
@@ -366,12 +366,12 @@
           }
         }
       },
-      "GetFacts591f9890d369931519ce3564OkResponse": {
-        "description": "TODO",
+      "FactResponse": {
+        "description": "Returns a fact",
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/GetFacts591f9890d369931519ce3564OkJSONResponse"
+              "$ref": "#/components/schemas/GetFactByIDOkJSONResponse"
             },
             "example": {
               "status": {
