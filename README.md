@@ -3,7 +3,7 @@
 [![Official Documentation](https://img.shields.io/badge/docs-API-blue)](https://alexwohlbruck.github.io/cat-facts/docs/)
 [![OpenAPI](https://img.shields.io/badge/OpenAPI-3.1-blue)](/api/openapi.json)
 [![Go Report Card](https://goreportcard.com/badge/github.com/go-api-libs/cat-facts)](https://goreportcard.com/report/github.com/go-api-libs/cat-facts)
-![Code Coverage](https://img.shields.io/badge/coverage-19%25-red)
+![Code Coverage](https://img.shields.io/badge/coverage-27%25-red)
 ![API Health](https://img.shields.io/badge/API_health-89%25-green)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
@@ -37,10 +37,12 @@ func main() {
 	}
 
 	ctx := context.Background()
-	err := c.GetRandom(ctx, &catfacts.GetRandomParams{Amount: 1})
+	getRandomOkJSONResponse, err := c.GetRandom(ctx, &catfacts.GetRandomParams{Amount: 1})
 	if err != nil {
 		panic(err)
 	}
+
+	// Use getRandomOkJSONResponse object
 }
 
 ```

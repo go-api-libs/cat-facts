@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"net/url"
 	"strconv"
+	"strings"
 
 	"github.com/go-api-libs/api"
 	"github.com/go-json-experiment/json"
@@ -43,7 +44,15 @@ func NewClient() (*Client, error) {
 // Get random cat facts
 //
 //	GET /random
-func (c *Client) GetRandom(ctx context.Context, params *GetRandomParams) error {
+func (c *Client) GetRandom(ctx context.Context, params *GetRandomParams) (*GetRandomOkJSONResponse, error) {
+	return GetRandom[GetRandomOkJSONResponse](ctx, c, params)
+}
+
+// Get random cat facts
+// You can define a custom result to unmarshal the response into.
+//
+//	GET /random
+func GetRandom[R any](ctx context.Context, c *Client, params *GetRandomParams) (*R, error) {
 	u := baseURL.JoinPath("/random")
 
 	if params != nil && params.Amount != 0 {
@@ -62,15 +71,28 @@ func (c *Client) GetRandom(ctx context.Context, params *GetRandomParams) error {
 
 	rsp, err := c.cli.Do(req)
 	if err != nil {
-		return err
+		return nil, err
 	}
 	defer rsp.Body.Close()
 
 	switch rsp.StatusCode {
 	case http.StatusServiceUnavailable:
 		// Returns an HTML page reporting an application error
-		return api.NewErrStatusCode(rsp)
+		return nil, api.NewErrStatusCode(rsp)
+	case http.StatusOK:
+		// TODO
+		switch mt, _, _ := strings.Cut(rsp.Header.Get("Content-Type"), ";"); mt {
+		case "application/json":
+			var out R
+			if err := json.UnmarshalRead(rsp.Body, &out, jsonOpts); err != nil {
+				return nil, api.WrapDecodingError(rsp, err)
+			}
+
+			return &out, nil
+		default:
+			return nil, api.NewErrUnknownContentType(rsp)
+		}
 	default:
-		return api.NewErrUnknownStatusCode(rsp)
+		return nil, api.NewErrUnknownStatusCode(rsp)
 	}
 }

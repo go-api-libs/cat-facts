@@ -23,18 +23,134 @@
         "responses": {
           "503": {
             "$ref": "#/components/responses/ServiceUnavailableResponse"
+          },
+          "200": {
+            "$ref": "#/components/responses/GetRandomOkResponse"
           }
         }
       }
     }
   },
   "components": {
+    "schemas": {
+      "GetRandomOkJSONResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/GetRandomOkJSONResponseStatus"
+          },
+          "_id": {
+            "type": "string",
+            "example": "6410831b2382a2c7c21a222b"
+          },
+          "user": {
+            "type": "string",
+            "example": "63fb745efcf661e5a0978073"
+          },
+          "text": {
+            "type": "string",
+            "example": "Привет кот чад."
+          },
+          "type": {
+            "type": "string",
+            "example": "cat"
+          },
+          "deleted": {
+            "type": "boolean",
+            "example": false
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2023-03-14T14:22:19.984Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2023-03-14T14:22:19.984Z"
+          },
+          "__v": {
+            "type": "integer",
+            "example": 0
+          }
+        },
+        "required": [
+          "status",
+          "_id",
+          "user",
+          "text",
+          "type",
+          "deleted",
+          "createdAt",
+          "updatedAt",
+          "__v"
+        ],
+        "example": {
+          "status": {
+            "verified": null,
+            "sentCount": 0
+          },
+          "_id": "6410831b2382a2c7c21a222b",
+          "user": "63fb745efcf661e5a0978073",
+          "text": "Привет кот чад.",
+          "type": "cat",
+          "deleted": false,
+          "createdAt": "2023-03-14T14:22:19.984Z",
+          "updatedAt": "2023-03-14T14:22:19.984Z",
+          "__v": 0
+        }
+      },
+      "GetRandomOkJSONResponseStatus": {
+        "type": "object",
+        "properties": {
+          "verified": {
+            "type": "object"
+          },
+          "sentCount": {
+            "type": "integer",
+            "example": 0
+          }
+        },
+        "required": [
+          "verified",
+          "sentCount"
+        ],
+        "example": {
+          "verified": null,
+          "sentCount": 0
+        }
+      }
+    },
     "responses": {
       "ServiceUnavailableResponse": {
         "description": "Returns an HTML page reporting an application error",
         "content": {
           "text/html": {
             "example": "<!DOCTYPE html>\n\t<html>\n\t  <head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\">\n\t\t<title>Application Error</title>\n\t\t<style media=\"screen\">\n\t\t  html,body,iframe {\n\t\t\tmargin: 0;\n\t\t\tpadding: 0;\n\t\t  }\n\t\t  html,body {\n\t\t\theight: 100%;\n\t\t\toverflow: hidden;\n\t\t  }\n\t\t  iframe {\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\tborder: 0;\n\t\t  }\n\t\t</style>\n\t  </head>\n\t  <body>\n\t\t<iframe src=\"//www.herokucdn.com/error-pages/application-error.html\"></iframe>\n\t  </body>\n\t</html>"
+          }
+        }
+      },
+      "GetRandomOkResponse": {
+        "description": "TODO",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/GetRandomOkJSONResponse"
+            },
+            "example": {
+              "status": {
+                "verified": null,
+                "sentCount": 0
+              },
+              "_id": "6410831b2382a2c7c21a222b",
+              "user": "63fb745efcf661e5a0978073",
+              "text": "Привет кот чад.",
+              "type": "cat",
+              "deleted": false,
+              "createdAt": "2023-03-14T14:22:19.984Z",
+              "updatedAt": "2023-03-14T14:22:19.984Z",
+              "__v": 0
+            }
           }
         }
       }

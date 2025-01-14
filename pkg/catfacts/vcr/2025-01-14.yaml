@@ -1,0 +1,58 @@
+---
+version: 2
+interactions:
+    - id: 0
+      request:
+        proto: HTTP/1.1
+        proto_major: 1
+        proto_minor: 1
+        content_length: 0
+        transfer_encoding: []
+        trailer: {}
+        host: cat-fact.herokuapp.com
+        remote_addr: ""
+        request_uri: ""
+        body: ""
+        form: {}
+        headers: {}
+        url: https://cat-fact.herokuapp.com/facts/random?amount=1
+        method: GET
+      response:
+        proto: HTTP/1.1
+        proto_major: 1
+        proto_minor: 1
+        transfer_encoding: []
+        trailer: {}
+        content_length: 261
+        uncompressed: false
+        body: '{"status":{"verified":null,"sentCount":0},"_id":"6410831b2382a2c7c21a222b","user":"63fb745efcf661e5a0978073","text":"Привет кот чад.","type":"cat","deleted":false,"createdAt":"2023-03-14T14:22:19.984Z","updatedAt":"2023-03-14T14:22:19.984Z","__v":0}'
+        headers:
+            Access-Control-Allow-Origin:
+                - '*'
+            Connection:
+                - keep-alive
+            Content-Length:
+                - "261"
+            Content-Type:
+                - application/json; charset=utf-8
+            Date:
+                - Tue, 14 Jan 2025 15:27:47 GMT
+            Etag:
+                - W/"105-WbHIx9mCKQe4lhUbfK8IifE5bQY"
+            Nel:
+                - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
+            Report-To:
+                - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1736868467&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=GSowqEMoUqzafC7gRkmkr%2BW2o%2B2BOJzmUkpxwDjhCzQ%3D"}]}'
+            Reporting-Endpoints:
+                - heroku-nel=https://nel.heroku.com/reports?ts=1736868467&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=GSowqEMoUqzafC7gRkmkr%2BW2o%2B2BOJzmUkpxwDjhCzQ%3D
+            Server:
+                - Cowboy
+            Set-Cookie:
+                - connect.sid=s%3AqQIMwNrt2TLzMJXZAyUgD8Xc2dNqx71t.E%2BIy2zjPdY%2FnWDm2S%2F3z%2FYueMbQ0J552WDqoFrkyjSQ; Path=/; HttpOnly
+            Via:
+                - 1.1 vegur
+            X-Powered-By:
+                - Express
+        status: 200 OK
+        code: 200
+        duration: 3.515833709s

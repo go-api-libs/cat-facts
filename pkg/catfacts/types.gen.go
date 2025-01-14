@@ -4,7 +4,28 @@
 
 package catfacts
 
+import "time"
+
 type GetRandomParams struct {
 	// The number of cat facts to return
 	Amount int
+}
+
+// GetRandomOkJSONResponse defines a model
+type GetRandomOkJSONResponse struct {
+	Status    GetRandomOkJSONResponseStatus `json:"status"`
+	ID        string                        `json:"_id,omitzero"`
+	User      string                        `json:"user,omitzero"`
+	Text      string                        `json:"text,omitzero"`
+	Type      string                        `json:"type,omitzero"`
+	Deleted   bool                          `json:"deleted,omitzero"`
+	CreatedAt time.Time                     `json:"createdAt,omitzero"`
+	UpdatedAt time.Time                     `json:"updatedAt,omitzero"`
+	V         int                           `json:"__v,omitzero"`
+}
+
+// GetRandomOkJSONResponseStatus defines a model
+type GetRandomOkJSONResponseStatus struct {
+	Verified  struct{} `json:"verified"`
+	SentCount int      `json:"sentCount,omitzero"`
 }
