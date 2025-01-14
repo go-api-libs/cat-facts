@@ -393,11 +393,13 @@
         "name": "amount",
         "in": "query",
         "description": "The number of cat facts to return",
+        "required": true,
         "schema": {
           "type": "integer",
-          "example": 1
+          "example": 2,
+          "min": 2
         },
-        "example": 1
+        "example": 2
       },
       "animal_type": {
         "name": "animal_type",

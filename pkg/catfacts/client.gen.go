@@ -48,7 +48,7 @@ func NewClient() (*Client, error) {
 // Get random cat facts
 //
 //	GET /facts/random
-func (c *Client) GetRandom(ctx context.Context, params *GetRandomParams) (Facts, error) {
+func (c *Client) GetRandom(ctx context.Context, params GetRandomParams) (Facts, error) {
 	return GetRandom[Facts](ctx, c, params)
 }
 
@@ -56,22 +56,18 @@ func (c *Client) GetRandom(ctx context.Context, params *GetRandomParams) (Facts,
 // You can define a custom result to unmarshal the response into.
 //
 //	GET /facts/random
-func GetRandom[R any](ctx context.Context, c *Client, params *GetRandomParams) (R, error) {
+func GetRandom[R any](ctx context.Context, c *Client, params GetRandomParams) (R, error) {
 	u := baseURL.JoinPath("/facts/random")
 
-	if params != nil {
-		q := make(url.Values, 2)
+	q := make(url.Values, 2)
 
-		if params.Amount != 0 {
-			q["amount"] = []string{strconv.Itoa(params.Amount)}
-		}
+	q["amount"] = []string{strconv.Itoa(params.Amount)}
 
-		if params.AnimalType != "" {
-			q["animal_type"] = []string{string(params.AnimalType)}
-		}
-
-		u.RawQuery = q.Encode()
+	if params.AnimalType != "" {
+		q["animal_type"] = []string{string(params.AnimalType)}
 	}
+
+	u.RawQuery = q.Encode()
 
 	req := (&http.Request{
 		Header:     http.Header{"User-Agent": []string{userAgent}},

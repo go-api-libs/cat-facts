@@ -44,8 +44,8 @@ func TestClient_Error(t *testing.T) {
 		testErr := errors.New("test error")
 		http.DefaultClient.Transport = &testRoundTripper{err: testErr}
 
-		if _, err := c.GetRandom(ctx, &catfacts.GetRandomParams{
-			Amount:     1,
+		if _, err := c.GetRandom(ctx, catfacts.GetRandomParams{
+			Amount:     2,
 			AnimalType: "cat",
 		}); err == nil {
 			t.Fatal("expected error")
@@ -67,8 +67,8 @@ func TestClient_Error(t *testing.T) {
 			// unknown status code
 			http.DefaultClient.Transport = &testRoundTripper{rsp: &http.Response{StatusCode: http.StatusTeapot}}
 
-			if _, err := c.GetRandom(ctx, &catfacts.GetRandomParams{
-				Amount:     1,
+			if _, err := c.GetRandom(ctx, catfacts.GetRandomParams{
+				Amount:     2,
 				AnimalType: "cat",
 			}); err == nil {
 				t.Fatal("expected error")
@@ -82,8 +82,8 @@ func TestClient_Error(t *testing.T) {
 				StatusCode: http.StatusOK,
 			}}
 
-			if _, err := c.GetRandom(ctx, &catfacts.GetRandomParams{
-				Amount:     1,
+			if _, err := c.GetRandom(ctx, catfacts.GetRandomParams{
+				Amount:     2,
 				AnimalType: "cat",
 			}); err == nil {
 				t.Fatal("expected error")
@@ -98,8 +98,8 @@ func TestClient_Error(t *testing.T) {
 				StatusCode: http.StatusOK,
 			}}
 
-			if _, err := c.GetRandom(ctx, &catfacts.GetRandomParams{
-				Amount:     1,
+			if _, err := c.GetRandom(ctx, catfacts.GetRandomParams{
+				Amount:     2,
 				AnimalType: "cat",
 			}); err == nil {
 				t.Fatal("expected error")
@@ -223,7 +223,7 @@ func TestClient_VCR(t *testing.T) {
 	t.Run("2024-12-22", func(t *testing.T) {
 		replay(t, "vcr/2024-12-22")
 
-		if _, err := c.GetRandom(ctx, &catfacts.GetRandomParams{Amount: 1}); err == nil {
+		if _, err := c.GetRandom(ctx, catfacts.GetRandomParams{Amount: 1}); err == nil {
 			t.Fatal("expected error")
 		} else if !errors.Is(err, api.ErrStatusCode) {
 			t.Fatalf("want: %v, got: %v", api.ErrStatusCode, err)
@@ -234,7 +234,7 @@ func TestClient_VCR(t *testing.T) {
 		replay(t, "vcr/2025-01-14")
 
 		{
-			res, err := c.GetRandom(ctx, &catfacts.GetRandomParams{
+			res, err := c.GetRandom(ctx, catfacts.GetRandomParams{
 				Amount:     2,
 				AnimalType: "cat",
 			})
