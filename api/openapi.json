@@ -33,9 +33,14 @@
         }
       }
     },
-    "/facts/591f9890d369931519ce3564": {
+    "/facts/{id}": {
       "get": {
         "operationId": "GetFacts591f9890d369931519ce3564",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/GetFacts591f9890d369931519ce3564OkResponse"
@@ -414,6 +419,16 @@
           "example": "cat"
         },
         "example": "cat"
+      },
+      "id": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "591f9890d369931519ce3564"
+        },
+        "example": "591f9890d369931519ce3564"
       }
     }
   },
