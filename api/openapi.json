@@ -427,8 +427,7 @@
         "schema": {
           "type": "string",
           "example": "591f9890d369931519ce3564"
-        },
-        "example": "591f9890d369931519ce3564"
+        }
       }
     }
   },
