@@ -37,36 +37,36 @@ type Status struct {
 	SentCount int  `json:"sentCount,omitzero"`
 }
 
-// GetFactByIDOkJSONResponse defines a model
-type GetFactByIDOkJSONResponse struct {
-	Status    GetFactByIDOkJSONResponseStatus `json:"status"`
-	ID        string                          `json:"_id,omitzero"`
-	V         int                             `json:"__v,omitzero"`
-	Text      string                          `json:"text,omitzero"`
-	Source    string                          `json:"source,omitzero"`
-	UpdatedAt time.Time                       `json:"updatedAt,omitzero"`
-	Type      string                          `json:"type,omitzero"`
-	CreatedAt time.Time                       `json:"createdAt,omitzero"`
-	Deleted   bool                            `json:"deleted,omitzero"`
-	Used      bool                            `json:"used,omitzero"`
-	User      GetFactByIDOkJSONResponseUser   `json:"user"`
+// FactResponse defines a model
+type FactResponse struct {
+	Status    FactResponseStatus `json:"status"`
+	ID        string             `json:"_id,omitzero"`
+	V         int                `json:"__v,omitzero"`
+	Text      string             `json:"text,omitzero"`
+	Source    string             `json:"source,omitzero"`
+	UpdatedAt time.Time          `json:"updatedAt,omitzero"`
+	Type      string             `json:"type,omitzero"`
+	CreatedAt time.Time          `json:"createdAt,omitzero"`
+	Deleted   bool               `json:"deleted,omitzero"`
+	Used      bool               `json:"used,omitzero"`
+	User      FactResponseUser   `json:"user"`
 }
 
-// GetFactByIDOkJSONResponseUser defines a model
-type GetFactByIDOkJSONResponseUser struct {
-	Name  GetFactByIDOkJSONResponseUserName `json:"name"`
-	ID    string                            `json:"_id,omitzero"`
-	Photo url.URL                           `json:"photo,omitzero"`
+// FactResponseUser defines a model
+type FactResponseUser struct {
+	Name  FactResponseUserName `json:"name"`
+	ID    string               `json:"_id,omitzero"`
+	Photo url.URL              `json:"photo,omitzero"`
 }
 
-// GetFactByIDOkJSONResponseUserName defines a model
-type GetFactByIDOkJSONResponseUserName struct {
+// FactResponseUserName defines a model
+type FactResponseUserName struct {
 	First string `json:"first,omitzero"`
 	Last  string `json:"last,omitzero"`
 }
 
-// GetFactByIDOkJSONResponseStatus defines a model
-type GetFactByIDOkJSONResponseStatus struct {
+// FactResponseStatus defines a model
+type FactResponseStatus struct {
 	Verified  bool `json:"verified,omitzero"`
 	SentCount int  `json:"sentCount,omitzero"`
 }

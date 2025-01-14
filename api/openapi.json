@@ -175,11 +175,11 @@
           "sentCount": 0
         }
       },
-      "GetFactByIDOkJSONResponse": {
+      "FactResponse": {
         "type": "object",
         "properties": {
           "status": {
-            "$ref": "#/components/schemas/GetFactByIDOkJSONResponseStatus"
+            "$ref": "#/components/schemas/FactResponseStatus"
           },
           "_id": {
             "type": "string",
@@ -220,7 +220,7 @@
             "example": false
           },
           "user": {
-            "$ref": "#/components/schemas/GetFactByIDOkJSONResponseUser"
+            "$ref": "#/components/schemas/FactResponseUser"
           }
         },
         "required": [
@@ -260,11 +260,11 @@
           }
         }
       },
-      "GetFactByIDOkJSONResponseUser": {
+      "FactResponseUser": {
         "type": "object",
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/GetFactByIDOkJSONResponseUserName"
+            "$ref": "#/components/schemas/FactResponseUserName"
           },
           "_id": {
             "type": "string",
@@ -290,7 +290,7 @@
           "photo": "https://lh3.googleusercontent.com/a/ACg8ocJDXN6nxC9SDuxWqEpuFQTmqzjGD1J-TnV5zbAJ3yiPWxPO=s50"
         }
       },
-      "GetFactByIDOkJSONResponseUserName": {
+      "FactResponseUserName": {
         "type": "object",
         "properties": {
           "first": {
@@ -311,7 +311,7 @@
           "last": "Wohlbruck"
         }
       },
-      "GetFactByIDOkJSONResponseStatus": {
+      "FactResponseStatus": {
         "type": "object",
         "properties": {
           "verified": {
@@ -371,7 +371,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/GetFactByIDOkJSONResponse"
+              "$ref": "#/components/schemas/FactResponse"
             },
             "example": {
               "status": {

@@ -68,12 +68,12 @@ func main() {
 	}
 
 	ctx := context.Background()
-	getFactByIDOkJSONResponse, err := c.GetFactByID(ctx, "591f9890d369931519ce3564")
+	factResponse, err := c.GetFactByID(ctx, "591f9890d369931519ce3564")
 	if err != nil {
 		panic(err)
 	}
 
-	// Use getFactByIDOkJSONResponse object
+	// Use factResponse object
 }
 
 ```
