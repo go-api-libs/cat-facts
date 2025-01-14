@@ -104,7 +104,7 @@
         "type": "object",
         "properties": {
           "verified": {
-            "type": "object"
+            "type": "boolean"
           },
           "sentCount": {
             "type": "integer",

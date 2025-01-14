@@ -26,6 +26,6 @@ type GetRandomOkJSONResponse struct {
 
 // GetRandomOkJSONResponseStatus defines a model
 type GetRandomOkJSONResponseStatus struct {
-	Verified  struct{} `json:"verified"`
-	SentCount int      `json:"sentCount,omitzero"`
+	Verified  bool `json:"verified,omitzero"`
+	SentCount int  `json:"sentCount,omitzero"`
 }
