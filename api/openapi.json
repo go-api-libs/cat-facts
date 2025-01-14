@@ -22,6 +22,7 @@
       ],
       "get": {
         "summary": "Get random cat facts",
+        "description": "Returns random cat facts\nNOTE: `amount` parameter must be greater than 1 due to inconsistent responses from the API",
         "operationId": "GetRandom",
         "responses": {
           "200": {
@@ -392,7 +393,7 @@
       "amount": {
         "name": "amount",
         "in": "query",
-        "description": "The number of cat facts to return\nNOTE: Must be greater than 1 due to inconsistent response from the API",
+        "description": "The number of cat facts to return\nNOTE: Must be greater than 1 due to inconsistent responses from the API",
         "required": true,
         "schema": {
           "type": "integer",
