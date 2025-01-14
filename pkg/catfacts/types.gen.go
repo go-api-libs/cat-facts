@@ -10,7 +10,8 @@ import (
 )
 
 type GetRandomParams struct {
-	// The number of cat facts to return // NOTE: Must be greater than 1 due to inconsistent responses from the API
+	// The number of cat facts to return
+	// NOTE: Must be greater than 1 due to inconsistent responses from the API
 	Amount int
 	// The type of animal
 	AnimalType AnimalType
