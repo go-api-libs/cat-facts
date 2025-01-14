@@ -43,7 +43,7 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/FactResponse"
+            "$ref": "#/components/responses/Fact"
           }
         }
       }
@@ -175,11 +175,11 @@
           "sentCount": 0
         }
       },
-      "FactResponse": {
+      "Fact": {
         "type": "object",
         "properties": {
           "status": {
-            "$ref": "#/components/schemas/FactResponseStatus"
+            "$ref": "#/components/schemas/FactStatus"
           },
           "_id": {
             "type": "string",
@@ -220,7 +220,7 @@
             "example": false
           },
           "user": {
-            "$ref": "#/components/schemas/FactResponseUser"
+            "$ref": "#/components/schemas/FactUser"
           }
         },
         "required": [
@@ -260,11 +260,11 @@
           }
         }
       },
-      "FactResponseUser": {
+      "FactUser": {
         "type": "object",
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/FactResponseUserName"
+            "$ref": "#/components/schemas/FactUserName"
           },
           "_id": {
             "type": "string",
@@ -290,7 +290,7 @@
           "photo": "https://lh3.googleusercontent.com/a/ACg8ocJDXN6nxC9SDuxWqEpuFQTmqzjGD1J-TnV5zbAJ3yiPWxPO=s50"
         }
       },
-      "FactResponseUserName": {
+      "FactUserName": {
         "type": "object",
         "properties": {
           "first": {
@@ -311,7 +311,7 @@
           "last": "Wohlbruck"
         }
       },
-      "FactResponseStatus": {
+      "FactStatus": {
         "type": "object",
         "properties": {
           "verified": {
@@ -366,12 +366,12 @@
           }
         }
       },
-      "FactResponse": {
+      "Fact": {
         "description": "Returns a fact",
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/FactResponse"
+              "$ref": "#/components/schemas/Fact"
             },
             "example": {
               "status": {

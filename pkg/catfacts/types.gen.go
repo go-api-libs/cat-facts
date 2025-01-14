@@ -37,36 +37,36 @@ type Status struct {
 	SentCount int  `json:"sentCount,omitzero"`
 }
 
-// FactResponse defines a model
-type FactResponse struct {
-	Status    FactResponseStatus `json:"status"`
-	ID        string             `json:"_id,omitzero"`
-	V         int                `json:"__v,omitzero"`
-	Text      string             `json:"text,omitzero"`
-	Source    string             `json:"source,omitzero"`
-	UpdatedAt time.Time          `json:"updatedAt,omitzero"`
-	Type      string             `json:"type,omitzero"`
-	CreatedAt time.Time          `json:"createdAt,omitzero"`
-	Deleted   bool               `json:"deleted,omitzero"`
-	Used      bool               `json:"used,omitzero"`
-	User      FactResponseUser   `json:"user"`
+// Fact defines a model
+type Fact struct {
+	Status    FactStatus `json:"status"`
+	ID        string     `json:"_id,omitzero"`
+	V         int        `json:"__v,omitzero"`
+	Text      string     `json:"text,omitzero"`
+	Source    string     `json:"source,omitzero"`
+	UpdatedAt time.Time  `json:"updatedAt,omitzero"`
+	Type      string     `json:"type,omitzero"`
+	CreatedAt time.Time  `json:"createdAt,omitzero"`
+	Deleted   bool       `json:"deleted,omitzero"`
+	Used      bool       `json:"used,omitzero"`
+	User      FactUser   `json:"user"`
 }
 
-// FactResponseUser defines a model
-type FactResponseUser struct {
-	Name  FactResponseUserName `json:"name"`
-	ID    string               `json:"_id,omitzero"`
-	Photo url.URL              `json:"photo,omitzero"`
+// FactUser defines a model
+type FactUser struct {
+	Name  FactUserName `json:"name"`
+	ID    string       `json:"_id,omitzero"`
+	Photo url.URL      `json:"photo,omitzero"`
 }
 
-// FactResponseUserName defines a model
-type FactResponseUserName struct {
+// FactUserName defines a model
+type FactUserName struct {
 	First string `json:"first,omitzero"`
 	Last  string `json:"last,omitzero"`
 }
 
-// FactResponseStatus defines a model
-type FactResponseStatus struct {
+// FactStatus defines a model
+type FactStatus struct {
 	Verified  bool `json:"verified,omitzero"`
 	SentCount int  `json:"sentCount,omitzero"`
 }

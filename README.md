@@ -68,12 +68,12 @@ func main() {
 	}
 
 	ctx := context.Background()
-	factResponse, err := c.GetFactByID(ctx, "591f9890d369931519ce3564")
+	fact, err := c.GetFactByID(ctx, "591f9890d369931519ce3564")
 	if err != nil {
 		panic(err)
 	}
 
-	// Use factResponse object
+	// Use fact object
 }
 
 ```

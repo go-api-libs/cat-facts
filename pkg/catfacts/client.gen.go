@@ -114,8 +114,8 @@ func GetRandom[R any](ctx context.Context, c *Client, params *GetRandomParams) (
 // GetFactByID defines an operation.
 //
 //	GET /facts/{id}
-func (c *Client) GetFactByID(ctx context.Context, id string) (*FactResponse, error) {
-	return GetFactByID[FactResponse](ctx, c, id)
+func (c *Client) GetFactByID(ctx context.Context, id string) (*Fact, error) {
+	return GetFactByID[Fact](ctx, c, id)
 }
 
 // GetFactByID defines an operation.
