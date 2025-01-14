@@ -45,11 +45,10 @@ func NewClient() (*Client, error) {
 	return &Client{cli: http.DefaultClient}, nil
 }
 
-/*
-Returns random cat facts
-NOTE: `amount` parameter must be greater than 1 due to inconsistent responses from the API
-*/
-//  GET /facts/random
+// Returns random cat facts
+// NOTE: `amount` parameter must be greater than 1 due to inconsistent responses from the API
+//
+//	GET /facts/random
 func (c *Client) GetRandom(ctx context.Context, params GetRandomParams) (Facts, error) {
 	return GetRandom[Facts](ctx, c, params)
 }
